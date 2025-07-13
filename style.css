@@ -1,0 +1,283 @@
+/* Global Styles & Navigation */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e6f0ff;
+  margin: 0;
+  padding: 0;
+  color: #003366;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #004080;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav {
+  background-color: #003366;
+  padding: 10px 20px;
+  text-align: center;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  justify-content: center;
+  display: flex;
+}
+
+nav button {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 8px 12px; /* Smaller padding for mobile */
+  margin: 5px; /* Adjust margin for wrapped buttons */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; /* Smaller font size for mobile */
+  transition: background-color 0.3s ease;
+  flex-grow: 1; /* Allow buttons to grow and fill space */
+  min-width: 120px; /* Minimum width for buttons */
+}
+
+@media (min-width: 768px) {
+  nav button {
+    padding: 10px 15px; /* Larger padding for desktop */
+    font-size: 16px; /* Larger font size for desktop */
+    min-width: auto; /* Reset min-width for desktop */
+    flex-grow: 0;
+  }
+}
+
+nav button:hover {
+  background-color: #0080ff;
+}
+
+/* Page Section Styling */
+.page-section {
+  padding: 20px;
+  display: none; /* Hidden by default, shown by JavaScript */
+  background: #f0f7ff; /* Consistent background for content areas */
+  flex-grow: 1; /* Allows content to take up available space */
+  box-sizing: border-box;
+  overflow-y: auto; /* Enable scrolling for content within sections */
+}
+
+.page-section.active {
+  display: block;
+}
+
+h1, h2, p {
+  text-align: center;
+}
+
+/* Styles from Page 1 (Property Submission Form) */
+#submit-property-section form {
+  max-width: 800px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+#submit-property-section label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+#submit-property-section input,
+#submit-property-section select,
+#submit-property-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#submit-property-section button[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #004080;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#submit-property-section button[type="submit"]:hover {
+  background-color: #0066cc;
+}
+#submit-property-section .hidden { display: none; }
+#submitMsg {
+  text-align: center;
+  color: green;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Styles from Page 2 (Archive List) */
+#archive-section .archive-list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (min-width: 768px) {
+  #archive-section .archive-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  #archive-section .archive-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+#archive-section .archive-item {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+/* Hide Bedrooms filter by default */
+.filter-item.bedrooms-filter {
+    display: none;
+}
+
+/* Styles from Page 3 (Recent Carousel) */
+#recent-carousel-section .carousel-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding-bottom: 15px;
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #004080 #f0f7ff; /* Firefox */
+}
+#recent-carousel-section .carousel-container::-webkit-scrollbar {
+  height: 8px;
+}
+#recent-carousel-section .carousel-container::-webkit-scrollbar-thumb {
+  background-color: #004080;
+  border-radius: 10px;
+}
+#recent-carousel-section .carousel-container::-webkit-scrollbar-track {
+  background-color: #f0f7ff;
+}
+
+#recent-carousel-section .carousel-card {
+  flex: 0 0 auto;
+  background: white;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  position: relative;
+}
+#recent-carousel-section .view-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+@media (max-width: 480px) {
+  #recent-carousel-section .container {
+    display: block !important;
+  }
+  #recent-carousel-section .carousel-card {
+    width: 280px;
+  }
+}
+#recent-carousel-section .no-data {
+  text-align: center;
+  padding: 20px;
+  color: gray;
+  font-style: italic;
+  width: 100%;
+}
+
+/* Styles from Page 4 (Magazine Table) */
+#magazine-table-section .detail-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  display: none;
+  position: relative;
+}
+#magazine-table-section .close-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 14px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+#magazine-table-section .close-btn:hover {
+  background: #bb2d3b;
+}
+#magazine-table-section .page-btn {
+  margin: 0 5px;
+  padding: 6px 12px;
+  background: #004080;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#magazine-table-section .page-btn:hover {
+  background: #0066cc;
+}
+@media (max-width: 576px) {
+  #magazine-table-section body {
+    padding: 10px;
+  }
+  #magazine-table-section .table-responsive {
+    overflow-x: auto;
+  }
+}
+
+/* Common Modal/View Card Styles */
+.view-card {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+.view-card-content {
+  background: #fff;
+  padding: 20px;
+  max-width: 500px;
+  border-radius: 10px;
+  width: 90%;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+.view-close {
+  position: absolute;
+  top: 10px; right: 15px;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: red;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  margin-top: auto; /* Push footer to the bottom */
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+}
